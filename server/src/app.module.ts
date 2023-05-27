@@ -22,6 +22,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         database: configService.get('PGDATABASE'),
         autoLoadEntities: true,
         synchronize: true,
+        // TODO
         ssl: { rejectUnauthorized: false },
       }),
     }),
