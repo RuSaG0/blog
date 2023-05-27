@@ -13,7 +13,4 @@ export class CreatePostDto {
     @IsString()
     @MaxLength(65536)
     content: string;
-
-    @IsNotEmpty()
-    user_id: number;
 }
