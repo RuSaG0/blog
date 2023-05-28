@@ -20,7 +20,7 @@ const PostsPage = () => {
 
     return (
         <div>
-            <h1>Posts</h1>
+            <h2>Posts</h2>
             {posts.map((_post) => (
                 <PostPreview post={_post}/>
             ))}
