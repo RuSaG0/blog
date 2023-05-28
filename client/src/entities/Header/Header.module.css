@@ -1,0 +1,41 @@
+.background {
+    padding: 40px 80px;
+    background: var(--primary100);
+    border-radius: 10px;
+    height: 555px;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.link {
+    color: var(--back100);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.subscribe {
+
+}
+
+.children {
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

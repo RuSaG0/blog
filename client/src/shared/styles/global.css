@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 30px;
 }
 
 h1,
@@ -38,4 +38,9 @@ h3,
 
 a {
   text-decoration-thickness: 0.025em;
+}
+
+h1,h2,h3,h4,h5,h6,a,p,span {
+  margin: 0;
+  padding: 0;
 }
