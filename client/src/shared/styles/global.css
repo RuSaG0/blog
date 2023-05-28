@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+  color: var(--primary100);
+  font-size: var(--base-font-size);
+  font-family: var(--font-graphik-serif);
+  line-height: var(--base-line-height);
+  background: var(--back100);
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+.title {
+  font-size: var(--header-font-size);
+  line-height: var(--header-line-height);
+}
+
+h2,
+.header {
+  font-size: var(--subheader-font-size);
+  line-height: var(--subheader-line-height);
+}
+
+h3,
+.subheader {
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+}
+
+a {
+  text-decoration-thickness: 0.025em;
+}

@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hr {
+  background: #232E52;
+  opacity: 0.1;
+  width: 100%;
+}
+
+.text {
+}

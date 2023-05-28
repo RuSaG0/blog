@@ -1,0 +1,15 @@
+:root {
+  --font-graphik-serif: "PT Sans", sans-serif;
+
+  --base-font-size: 18px;
+  --base-line-height: 1.5;
+
+  --small-font-size: 0.8rem;
+  --small-line-height: 1.5;
+
+  --header-font-size: 2em;
+  --header-line-height: 1.15;
+
+  --subheader-font-size: 1.55rem;
+  --subheader-line-height: 1.3;
+}
