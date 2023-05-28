@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import PostPreview from '@/entities/PostPreview';
+import PostPreview from '@entities/PostPreview';
+
 const PostsPage = () => {
     const [posts, setPosts] = useState([]);
 

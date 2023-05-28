@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import {IProps} from '@/entities/PostPreview/post-preview.interface';
+import {IProps} from './post-preview.interface';
 
 const PostPreview:FC<IProps> = ({ post }) => {
     return <>

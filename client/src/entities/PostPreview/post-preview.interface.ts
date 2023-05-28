@@ -1,4 +1,4 @@
-import {IPost} from '@/shared/models/posts/post';
+import {IPost} from '@models/posts/post';
 
 export interface IProps {
     post: IPost;
