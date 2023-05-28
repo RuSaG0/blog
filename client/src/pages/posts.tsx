@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import PostPreview from '@entities/PostPreview';
+import PostPreview from '@entities/PostPreview/PostPreview';
+import axiosInstance from '../shared/api/axiosInstance';
 
 const PostsPage = () => {
     const [posts, setPosts] = useState([]);
@@ -8,7 +8,7 @@ const PostsPage = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/posts');
+                const response = await axiosInstance.get('posts');
                 setPosts(response.data);
             } catch (error) {
                 console.error('Error fetching posts:', error);
