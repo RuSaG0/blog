@@ -8,6 +8,7 @@ import "@styles/grid.css";
 
 import "@styles/animation.css";
 
+import "@styles/normalize.css"
 import "@styles/global.css";
 
 // Types
