@@ -21,23 +21,23 @@ export class TagsService {
     return this.tagRepository.find();
   }
 
-  async findOne(id: number): Promise<Tag> {
-    return this.tagRepository.findOne({ where: { id } });
+  async findOne(title: string): Promise<Tag> {
+    return await this.tagRepository.findOne({ where: { title } });
   }
 
-  async update(id: number, updateTagDto: UpdateTagDto): Promise<Tag> {
-    const tag = await this.tagRepository.findOne({ where: { id } });
+  async update(title: string, updateTagDto: UpdateTagDto): Promise<Tag> {
+    const tag = await this.tagRepository.findOne({ where: { title } });
     if (!tag) {
-      throw new Error(`Tag with id ${id} not found`);
+      throw new Error(`Tag with title ${title} not found`);
     }
     Object.assign(tag, updateTagDto);
     return this.tagRepository.save(tag);
   }
 
-  async remove(id: number): Promise<void> {
-    const tag = await this.tagRepository.findOne({ where: { id } });
+  async remove(title: string): Promise<void> {
+    const tag = await this.tagRepository.findOne({ where: { title } });
     if (!tag) {
-      throw new Error(`Tag with id ${id} not found`);
+      throw new Error(`Tag with title ${title} not found`);
     }
     await this.tagRepository.remove(tag);
   }
