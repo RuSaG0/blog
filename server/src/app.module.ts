@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostsModule } from './posts/posts.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TagsModule } from './tags/tags.module';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         ssl: { rejectUnauthorized: false },
       }),
     }),
-    PostsModule
+    PostsModule,
+    TagsModule
   ],
   controllers: [AppController],
   providers: [AppService],

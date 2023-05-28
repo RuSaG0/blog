@@ -13,7 +13,7 @@ export class PostsService {
       private readonly postRepository: Repository<Post>,
   ) {}
 
-  create(createPostDto: CreatePostDto): Promise<Post> {
+  async create(createPostDto: CreatePostDto): Promise<Post> {
     const post = this.postRepository.create(createPostDto);
     return this.postRepository.save(post);
   }
@@ -22,15 +22,24 @@ export class PostsService {
     return this.postRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
+  async findOne(id: number): Promise<Post> {
+    return this.postRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updatePostDto: UpdatePostDto) {
-    return `This action updates a #${id} post`;
+  async update(id: number, updatePostDto: UpdatePostDto): Promise<Post> {
+    const post = await this.postRepository.findOne({ where: { id } });
+    if (!post) {
+      throw new Error(`Post with id ${id} not found`);
+    }
+    Object.assign(post, updatePostDto);
+    return this.postRepository.save(post);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} post`;
+  async remove(id: number): Promise<void> {
+    const post = await this.postRepository.findOne({ where: { id } });
+    if (!post) {
+      throw new Error(`Post with id ${id} not found`);
+    }
+    await this.postRepository.remove(post);
   }
 }
