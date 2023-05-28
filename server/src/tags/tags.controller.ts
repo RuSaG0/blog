@@ -17,18 +17,18 @@ export class TagsController {
     return this.tagsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tagsService.findOne(+id);
+  @Get(':title')
+  findOne(@Param('title') title: string) {
+    return this.tagsService.findOne(title);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTagDto: UpdateTagDto) {
-    return this.tagsService.update(+id, updateTagDto);
+  @Patch(':title')
+  update(@Param('title') title: string, @Body() updateTagDto: UpdateTagDto) {
+    return this.tagsService.update(title, updateTagDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.tagsService.remove(+id);
+  @Delete(':title')
+  remove(@Param('title') title: string) {
+    return this.tagsService.remove(title);
   }
 }
