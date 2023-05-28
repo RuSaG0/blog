@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PostPreview from '@entities/PostPreview/PostPreview';
 import axiosInstance from '../shared/api/axiosInstance';
+import {IPost} from '@models/posts/post';
 
 const PostsPage = () => {
     const [posts, setPosts] = useState([]);
@@ -21,8 +22,8 @@ const PostsPage = () => {
     return (
         <div>
             <h2>Posts</h2>
-            {posts.map((_post) => (
-                <PostPreview post={_post}/>
+            {posts.map((_post: IPost) => (
+                <PostPreview key={_post.id} post={_post}/>
             ))}
         </div>
     );
