@@ -21,7 +21,7 @@ const PostsPage = () => {
 
     return (
         <div>
-            <h2>Posts</h2>
+            <h1 style={{marginBottom: '60px'}}>Recent Posts</h1>
             {posts.map((_post: IPost) => (
                 <PostPreview key={_post.id} post={_post}/>
             ))}
