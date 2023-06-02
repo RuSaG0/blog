@@ -1,5 +1,4 @@
-import { IsNotEmpty, IsString, IsOptional, IsUrl, MaxLength, IsNumber } from 'class-validator';
-import {CreateTagDto} from '../../tags/dto/create-tag.dto';
+import { IsNotEmpty, IsString, IsOptional, IsUrl, MaxLength } from 'class-validator';
 
 export class CreatePostDto {
     @IsNotEmpty()
@@ -16,6 +15,6 @@ export class CreatePostDto {
     content: string;
 
     @IsOptional()
-    @IsNumber({}, { each: true })
-    tags?: CreateTagDto[];
+    @IsString({each: true})
+    tags?: string[];
 }

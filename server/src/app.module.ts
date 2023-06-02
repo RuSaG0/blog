@@ -4,7 +4,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostsModule } from './posts/posts.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TagsModule } from './tags/tags.module';
 
 @Module({
   imports: [
@@ -28,7 +27,6 @@ import { TagsModule } from './tags/tags.module';
       }),
     }),
     PostsModule,
-    TagsModule
   ],
   controllers: [AppController],
   providers: [AppService],

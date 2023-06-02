@@ -1,5 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToMany, JoinTable } from 'typeorm';
-import {Tag} from '../../tags/entities/tag.entity';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity()
 export class Post {
@@ -21,7 +20,9 @@ export class Post {
     @UpdateDateColumn()
     updated_at: Date;
 
-    @ManyToMany(() => Tag, { cascade: true })
-    @JoinTable()
-    tags: Tag[];
+    @Column('text', {
+        array: true,
+        nullable: true,
+    })
+    tags: string[]
 }
