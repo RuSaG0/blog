@@ -42,4 +42,18 @@ export class PostsService {
     }
     await this.postRepository.remove(post);
   }
+
+  async getAllTags(): Promise<string[]> {
+      const query = `
+        SELECT DISTINCT UNNEST(tags) AS tag
+        FROM post
+        WHERE tags IS NOT NULL
+      `;
+
+      const result = await this.postRepository.query(query);
+
+      const tags = result.map((row) => row.tag);
+
+      return tags;
+    }
 }

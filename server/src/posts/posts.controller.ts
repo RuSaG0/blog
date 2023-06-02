@@ -17,6 +17,11 @@ export class PostsController {
     return this.postsService.findAll();
   }
 
+  @Get('/tags')
+  getAllTags() {
+    return this.postsService.getAllTags()
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.postsService.findOne(+id);

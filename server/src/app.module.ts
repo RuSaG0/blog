@@ -20,8 +20,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         username: configService.get('PGUSER'),
         password: configService.get('PGPASSWORD'),
         database: configService.get('PGDATABASE'),
+        port: configService.get('PGPORT'),
         autoLoadEntities: true,
         synchronize: true,
+        "logging": true,
         // TODO
         ssl: { rejectUnauthorized: false },
       }),

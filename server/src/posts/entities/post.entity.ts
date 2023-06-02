@@ -20,7 +20,8 @@ export class Post {
     @UpdateDateColumn()
     updated_at: Date;
 
-    @Column('text', {
+    @Column( {
+        type: 'text',
         array: true,
         nullable: true,
     })
