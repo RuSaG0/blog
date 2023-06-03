@@ -27,6 +27,8 @@
     "@editorjs/table": "^2.2.1",
     "@editorjs/warning": "^1.3.0",
     "axios": "^1.4.0",
+    "editorjs-html": "^3.4.2",
+    "editorjs-parser": "^1.5.3",
     "editorjs-style": "^3.0.3",
     "editorjs-tooltip": "^1.1.15",
     "luxon": "^3.3.0",
