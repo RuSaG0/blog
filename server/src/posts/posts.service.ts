@@ -18,8 +18,17 @@ export class PostsService {
     return this.postRepository.save(post);
   }
 
-  async findAll(): Promise<Post[]> {
-    return this.postRepository.find();
+  async findAll(tags?: string): Promise<Post[]> {
+    let query = this.postRepository.createQueryBuilder('post');
+
+    if (tags) {
+      const tagArray = tags.split(',');
+      query = query.where('post.tags::text[] && :tags', {
+        tags: tagArray
+      });
+    }
+
+    return query.getMany();
   }
 
   async findOne(id: number): Promise<Post> {
