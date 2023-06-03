@@ -28,6 +28,7 @@
     "eslint-plugin-react": "^7.22.0",
     "next-offline": "^5.0.5",
     "prettier": "^2.3.2",
+    "sass": "^1.62.1",
     "stylelint": "^15.2.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^33.0.0",
