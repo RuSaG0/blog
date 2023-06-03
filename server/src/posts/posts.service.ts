@@ -57,6 +57,7 @@ export class PostsService {
         SELECT DISTINCT UNNEST(tags) AS tag
         FROM post
         WHERE tags IS NOT NULL
+        ORDER BY tag
       `;
 
       const result = await this.postRepository.query(query);
