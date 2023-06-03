@@ -20,7 +20,6 @@ describe('PostsController', () => {
   });
 
   describe('create', () => {
-  describe('create', () => {
     it('should create a new post', async () => {
       const createPostDto: CreatePostDto = {
         header: 'Test Post',
