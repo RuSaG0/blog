@@ -29,6 +29,7 @@
     "axios": "^1.4.0",
     "editorjs-html": "^3.4.2",
     "editorjs-parser": "^1.5.3",
+    "editorjs-react-renderer": "^3.5.1",
     "editorjs-style": "^3.0.3",
     "editorjs-tooltip": "^1.1.15",
     "luxon": "^3.3.0",
