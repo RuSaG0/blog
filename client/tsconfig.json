@@ -23,8 +23,14 @@
       "@extensions/*": [
         "src/extensions/*"
       ],
+      "@app/*": [
+        "src/app/*"
+      ],
       "@entities/*": [
         "src/entities/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
       ],
       "@ui/*": [
         "src/shared/ui/*"

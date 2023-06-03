@@ -14,7 +14,7 @@ export const Header = ({ children }: WithChildren) => {
             <Link className={styles.link} href="/">
               Home
             </Link>
-            <Link className={styles.link} href="/all">
+            <Link className={styles.link} href="/best">
               All
             </Link>
             <Link className={styles.link} href="/about">

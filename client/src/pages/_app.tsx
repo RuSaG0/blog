@@ -18,11 +18,15 @@ import { AppProps } from "next/app";
 import { Footer } from '@entities/Footer';
 import { Stretch } from '@entities/Stretch';
 import { Center } from '@entities/Center';
+import {Navbar} from '../widgets/Navbar';
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <>
             <Center>
+                <div>
+                    <Navbar />
+                </div>
                 <Stretch>
                     <div className="content">
                         <Component {...pageProps} />

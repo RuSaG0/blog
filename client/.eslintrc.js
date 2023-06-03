@@ -1,30 +1,30 @@
-{
-  "env": {
-    "browser": true,
-    "es2020": true,
-    "node": true
+module.exports = {
+  env: {
+    browser: true,
+    es2020: true,
+    node: true
   },
-  "extends": [
+  extends: [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@next/next/recommended"
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
     },
-    "ecmaVersion": 11,
-    "sourceType": "module"
+    ecmaVersion: 11,
+    sourceType: "module"
   },
-  "plugins": ["react", "@typescript-eslint", "@next/eslint-plugin-next"],
-  "settings": {
-    "react": {
-      "version": "detect"
+  plugins: ["react", "@typescript-eslint", "@next/eslint-plugin-next"],
+  settings: {
+    react: {
+      version: "detect"
     }
   },
-  "rules": {
+  rules: {
     "@next/next/no-page-custom-font": "off",
     "@next/next/no-img-element": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
