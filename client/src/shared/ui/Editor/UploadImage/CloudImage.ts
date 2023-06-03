@@ -13,6 +13,6 @@ export const CloudImage=async(form_data:FormData)=>{
         }
 
     }catch(err){
-
+        // No error
     }
 }
