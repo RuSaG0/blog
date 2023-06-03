@@ -61,7 +61,7 @@ const CustomEditor = (props:propType) => {
     const onFileChange=async(file:File)=>{
 
         const form_data = new FormData()
-        let preset = process.env.NEXT_PUBLIC_PRESET
+        const preset = process.env.NEXT_PUBLIC_PRESET
         if(preset){
             form_data.append('upload_preset',preset)
         }
@@ -92,8 +92,9 @@ const CustomEditor = (props:propType) => {
             onChange: _(function() {
                 try{
                     contents()
-                }catch(err){
-
+                }
+                catch(err){
+                    // Mo error
                 }
 
             },3000),
