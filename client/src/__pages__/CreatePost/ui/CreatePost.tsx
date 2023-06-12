@@ -1,5 +1,3 @@
-import cls from './CreatePost.module.scss'
-import EditorComponent from '@ui/Editor/Editor';
 import dynamic from 'next/dynamic';
 import {useEffect, useState} from 'react';
 import axiosInstance from '../../../shared/api/axiosInstance';

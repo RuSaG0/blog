@@ -1,7 +1,7 @@
 // tools.js
 import Embed from '@editorjs/embed'
 import Table from '@editorjs/table'
-import Paragraph from '@editorjs/paragraph'
+// import Paragraph from '@editorjs/paragraph'
 import List from '@editorjs/list'
 import Warning from '@editorjs/warning'
 import Code from '@editorjs/code'

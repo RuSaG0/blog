@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:js": "eslint --fix --ext \".js,.ts, .tsx, .jsx\" --ignore-path .gitignore ."
   },
   "dependencies": {
     "@editorjs/checklist": "^1.5.0",

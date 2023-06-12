@@ -58,7 +58,7 @@ const CustomEditor = (props:propType) => {
 
     // save images in Cloudinary
 
-    const onFileChange=async(file:File)=>{
+    const onFileChange = async (file: File) => {
 
         const form_data = new FormData()
         const preset = process.env.NEXT_PUBLIC_PRESET
@@ -67,7 +67,7 @@ const CustomEditor = (props:propType) => {
         }
         if(file){
             form_data.append('file',file)
-            const imageUrl =await CloudImage(form_data)
+            const imageUrl = await CloudImage(form_data)
 
             if(imageUrl){
                 console.log(imageUrl);

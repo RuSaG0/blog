@@ -1,20 +1,18 @@
-import cls from './PostPage.module.scss'
 import {useRouter} from 'next/router';
 import axiosInstance from '../../../shared/api/axiosInstance';
 import {useEffect, useRef, useState} from 'react';
-import Editor from '@editorjs/editorjs';
 import Output from 'editorjs-react-renderer';
+import {IPost} from '@shared/types/post';
 
 interface PostPageProps {
     className?: string;
 }
 
 const PostPage = ({className}: PostPageProps) => {
-    const editorRef = useRef(null);
     const router = useRouter();
     const { id } = router.query;
 
-    const [post, setPost] = useState(null);
+    const [post, setPost] = useState<Nullable<IPost>>(null);
     const [content, setContent] = useState(null);
 
     const fetchPost = async () => {
