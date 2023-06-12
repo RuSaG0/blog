@@ -11,6 +11,7 @@ const Navbar = ({className}: NavbarProps) => {
         <>
         <div className={classNames(cls.Navbar, {}, [])}>
             <div className={cls.links}>
+                <AppLink theme={AppLinkTheme.SECONDARY} href={'/post/create'}>Create posts</AppLink>
                 <AppLink theme={AppLinkTheme.SECONDARY} href={'/'}>Home</AppLink>
                 <AppLink theme={AppLinkTheme.SECONDARY} href={'/best'}>Best</AppLink>
                 <AppLink theme={AppLinkTheme.SECONDARY} href={'/pets'}>Pets</AppLink>
