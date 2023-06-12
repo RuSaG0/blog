@@ -1,8 +1,16 @@
 import cls from './Tag.module.scss'
+import type { WithChildren } from "@extensions/components";
 
-const Tag = ({children, onClick}) => {
+interface TagProps {
+    onClick?: (children) => void
+}
+
+const Tag = ({onClick, children}: WithChildren<TagProps>) => {
+
     const handleClick = () => {
-        onClick(children);
+        if (onClick) {
+            onClick(children);
+        }
     };
 
     return (

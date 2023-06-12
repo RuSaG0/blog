@@ -1,8 +1,9 @@
 import {useRouter} from 'next/router';
 import axiosInstance from '../../../shared/api/axiosInstance';
-import {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Output from 'editorjs-react-renderer';
 import {IPost} from '@shared/types/post';
+import Tag from '@ui/Tag/Tag';
 
 interface PostPageProps {
     className?: string;
@@ -38,6 +39,11 @@ const PostPage = ({className}: PostPageProps) => {
             {post && <>
                 <div>
                     <p>{post.header}</p>
+                    {post && post.tags && post.tags.map((_tag: string) => (
+                        <Tag key={_tag}>
+                            {_tag}
+                        </Tag>
+                    ))}
                   <Output
                     data={content}
                   />
