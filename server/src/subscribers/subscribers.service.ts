@@ -4,12 +4,11 @@ import { CreateSubscriberDto } from './dto/create-subscriber.dto';
 import { UpdateSubscriberDto } from './dto/update-subscriber.dto';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import {Post} from '../posts/entities/post.entity';
 
 @Injectable()
 export class SubscribersService {
   constructor(
-      @InjectRepository(Post)
+      @InjectRepository(Subscriber)
       private readonly subscriberRepository: Repository<Subscriber>,
   ) {}
 

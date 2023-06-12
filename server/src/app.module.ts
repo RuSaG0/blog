@@ -2,10 +2,13 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PostsModule } from './posts/posts.module';
+
 import { ConfigModule, ConfigService } from '@nestjs/config';
+
+// Modules
 import { UsersModule } from './users/users.module';
 import { SubscribersModule } from './subscribers/subscribers.module';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
