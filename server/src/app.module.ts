@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostsModule } from './posts/posts.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
+import { SubscribersModule } from './subscribers/subscribers.module';
 
 @Module({
   imports: [
@@ -23,12 +25,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         port: configService.get('PGPORT'),
         autoLoadEntities: true,
         synchronize: true,
-        "logging": true,
+        logging: true,
         // TODO
         ssl: { rejectUnauthorized: false },
       }),
     }),
     PostsModule,
+    UsersModule,
+    SubscribersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

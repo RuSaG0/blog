@@ -26,4 +26,7 @@ export class Post {
         nullable: true,
     })
     tags: string[]
+
+    @Column({ nullable: true })
+    is_published: boolean;
 }
