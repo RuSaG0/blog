@@ -11,7 +11,8 @@ interface CreatePostProps {
 
 const CreatePost = ({className}: CreatePostProps) => {
     const [header, setHeader] = useState('');
-    const [options, setOptions] = useState<BaseOptionType[]>([]);
+    const [tags, setTags] = useState<BaseOptionType[]>([]);
+    const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
     const handleHeaderChange = (event) => {
         setHeader(event.target.value);
@@ -19,7 +20,8 @@ const CreatePost = ({className}: CreatePostProps) => {
 
     const [content,setContent] = useState('')
 
-    const handleChange = (value: string) => {
+    const handleChange = (value: string[]) => {
+        setSelectedTags(value);
         console.log(`selected ${value}`);
     };
 
@@ -28,6 +30,7 @@ const CreatePost = ({className}: CreatePostProps) => {
             const response = await axiosInstance.post('posts', {
                 content,
                 header,
+                tags: selectedTags
             });
             console.info(response)
         } catch (error) {
@@ -38,7 +41,7 @@ const CreatePost = ({className}: CreatePostProps) => {
     const getTagsAsync = async () => {
         try {
             const response = await axiosInstance.get('posts/tags');
-            setOptions(response.data.map(tag => ({ value: tag, label: tag })));
+            setTags(response.data.map(tag => ({ value: tag, label: tag })));
         } catch (error) {
             console.error('Error fetching posts:', error);
         }
@@ -60,7 +63,7 @@ const CreatePost = ({className}: CreatePostProps) => {
                     style={{ width: '100%' }}
                     placeholder="Tags Mode"
                     onChange={handleChange}
-                    options={options}
+                    options={tags}
                 />
                 <CustomEditor setContent={setContent} content={content} />
             </div>
