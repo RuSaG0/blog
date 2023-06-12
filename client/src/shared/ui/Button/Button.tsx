@@ -13,7 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
 
 const Button = (props: WithChildren<ButtonProps>) => {
     const {
-        className,
+        className = '',
         children,
         ...otherProps
     } = props;
