@@ -25,7 +25,7 @@ export class AuthService {
       throw new HttpException('User already exist', HttpStatus.BAD_REQUEST)
     }
 
-    const hashPassword = await bcryptjs.hash(candidate.password, 5)
+    const hashPassword = await bcryptjs.hash(userDto.password, 5)
 
     const user = await this.userService.create({
       ...userDto,

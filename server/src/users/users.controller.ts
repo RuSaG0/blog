@@ -1,4 +1,4 @@
-import {Body, Controller, Delete, Get, Param, Patch, Post, UseGuards} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Patch, Post, UseGuards, UsePipes} from '@nestjs/common';
 import {UsersService} from './users.service';
 import {CreateUserDto} from './dto/create-user.dto';
 import {UpdateUserDto} from './dto/update-user.dto';
@@ -6,12 +6,14 @@ import {User, UserRole} from './entities/user.entity';
 import {ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger';
 import {Roles} from '../auth/roles-auth.decorator';
 import {RolesGuard} from '../auth/roles-guard';
+import {ValidationPipe} from '../pipes/validation.pipe';
 
 @ApiTags('Users')
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @UsePipes(ValidationPipe)
   @Post()
   async create(@Body() createUserDto: CreateUserDto): Promise<User> {
     return this.usersService.create(createUserDto);
