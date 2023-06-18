@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import {User, UserRole} from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -13,13 +13,21 @@ export class UsersService {
   {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
+    const { email } = createUserDto;
+
+    const existingUser = await this.userRepository.findOne({ where: { email } });
+
+    if (existingUser) {
+      throw new NotFoundException('User with this email already exists');
+    }
+
     const user = this.userRepository.create(createUserDto);
     Object.assign(user, {role: UserRole.USER});
     return this.userRepository.save(user);
   }
 
-  findAll() {
-    return `This action returns all users`;
+  findAll(): Promise<User[]>  {
+    return this.userRepository.find();
   }
 
   findOne(id: number) {
