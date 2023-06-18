@@ -1,7 +1,12 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {ApiProperty} from '@nestjs/swagger';
 
 @Entity()
 export class Post {
+    @ApiProperty({
+        example: 1,
+        description: 'unique id'
+    })
     @PrimaryGeneratedColumn()
     id: number;
 
