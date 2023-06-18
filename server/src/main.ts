@@ -28,8 +28,16 @@ async function bootstrap() {
   // Enable CORS
   app.enableCors(corsOptions);
 
+  try {
+    const port = process.env.PORT || 5000
+    await app.listen(port);
+    console.info(`Server started on port ${port}`)
+  }
 
-  await app.listen(process.env.PORT || 5000);
+  catch (e) {
+    throw new Error('Cant start app')
+  }
+
 }
 
 bootstrap();

@@ -13,17 +13,14 @@ export class UsersService {
   {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
-    const { email } = createUserDto;
-
-    const existingUser = await this.userRepository.findOne({ where: { email } });
-
-    if (existingUser) {
-      throw new NotFoundException('User with this email already exists');
-    }
-
     const user = this.userRepository.create(createUserDto);
     Object.assign(user, {role: UserRole.USER});
     return this.userRepository.save(user);
+  }
+
+  async getUserByEmail(email: string) {
+    const user = await this.userRepository.findOne({ where: { email } });
+    return user;
   }
 
   findAll(): Promise<User[]>  {
