@@ -2,7 +2,7 @@ import {Controller, Get, Post, Body, Patch, Param, Delete, Res} from '@nestjs/co
 import { AuthService } from './auth.service';
 import {ApiTags} from '@nestjs/swagger';
 import {CreateUserDto} from '../users/dto/create-user.dto';
-import {Response} from 'express';
+import {response, Response} from 'express';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -33,5 +33,10 @@ export class AuthController {
     })
 
     return result;
+  }
+
+  @Post('/logout')
+  async logout(@Res({passthrough: true}) res: Response) {
+    res.clearCookie('RUSAG0-BLOG-TOKEN')
   }
 }
