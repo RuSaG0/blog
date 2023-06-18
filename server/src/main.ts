@@ -19,7 +19,7 @@ async function bootstrap() {
 
   // TODO
   const corsOptions: CorsOptions = {
-    origin: true, // Allow requests from all origins
+    origin: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     preflightContinue: false,
     optionsSuccessStatus: 204,
@@ -27,9 +27,8 @@ async function bootstrap() {
   };
 
   // Enable CORS
-  app.enableCors(corsOptions);
 
-  app.use(cookieParser());
+  app.enableCors(corsOptions);
 
   try {
     const port = process.env.PORT || 5000

@@ -59,15 +59,15 @@ export class AuthService {
     const user = await this.userService.getUserByEmail(userDto.email);
 
     if(!user) {
-      throw new UnauthorizedException({message: 'Incorrect email or password'})
+      throw new HttpException('User must be exist', HttpStatus.BAD_REQUEST)
     }
 
     const passwordEquals = await bcryptjs.compare(userDto.password, user.password);
 
-    if (passwordEquals) {
-      return user;
+    if (!passwordEquals) {
+      throw new UnauthorizedException({message: 'Incorrect email or password'})
     }
 
-    throw new HttpException('Unexpected Error', HttpStatus.BAD_REQUEST);
+    return user;
   }
 }
