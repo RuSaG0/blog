@@ -16,8 +16,6 @@ export class AuthController {
     res.cookie('RUSAG0-BLOG-TOKEN',  result.access_token, {
       httpOnly: true,
       maxAge: 86400000,
-      sameSite: 'none',
-      secure: true
     })
 
     return result;
@@ -31,8 +29,6 @@ export class AuthController {
     res.cookie('RUSAG0-BLOG-TOKEN',  result.access_token, {
       httpOnly: true,
       maxAge: 86400000,
-      sameSite: 'none',
-      secure: true
     })
 
     return result;
