@@ -1,4 +1,4 @@
-import {HttpException, HttpStatus, Injectable, NotFoundException, UnauthorizedException} from '@nestjs/common';
+import {HttpException, HttpStatus, Injectable, NotFoundException, Res, UnauthorizedException} from '@nestjs/common';
 import {CreateUserDto} from '../users/dto/create-user.dto';
 import {UsersService} from '../users/users.service';
 import {JwtService} from '@nestjs/jwt';
@@ -11,15 +11,17 @@ export class AuthService {
   constructor(private userService: UsersService,
               private jwtService: JwtService) {}
 
-
-
-
-  async login(userDto: CreateUserDto) {
+  async login(userDto: CreateUserDto): Promise<User & {access_token: string}> {
     const user = await this.validateUser(userDto);
-    return this.generateToken(user)
+    const token = await this.generateToken(user);
+
+    return {
+      ...user,
+      ...token
+    };
   }
 
-  async registration(userDto: CreateUserDto) {
+  async registration(userDto: CreateUserDto): Promise<User & {access_token: string}> {
     const candidate = await this.userService.getUserByEmail(userDto.email)
     if (candidate) {
       throw new HttpException('User already exist', HttpStatus.BAD_REQUEST)
@@ -32,7 +34,12 @@ export class AuthService {
       password: hashPassword
     })
 
-    return this.generateToken(user);
+    const token = await this.generateToken(user);
+
+    return {
+      ...user,
+      ...token
+    };
   }
 
   private async generateToken(user: User) {
@@ -41,18 +48,26 @@ export class AuthService {
       id: user.id,
       role: user.role
     }
+    const accessToken = await this.jwtService.signAsync(payload);
+
     return {
-      token: this.jwtService.sign(payload)
+      access_token: accessToken
     }
   }
 
   private async validateUser(userDto: CreateUserDto){
     const user = await this.userService.getUserByEmail(userDto.email);
+
+    if(!user) {
+      throw new UnauthorizedException({message: 'Incorrect email or password'})
+    }
+
     const passwordEquals = await bcryptjs.compare(userDto.password, user.password);
-    if(user && passwordEquals) {
+
+    if (passwordEquals) {
       return user;
     }
 
-    throw new UnauthorizedException({message: 'Incorrect email or password'})
+    throw new HttpException('Unexpected Error', HttpStatus.BAD_REQUEST);
   }
 }

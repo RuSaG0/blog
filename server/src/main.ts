@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
+import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -27,6 +28,8 @@ async function bootstrap() {
 
   // Enable CORS
   app.enableCors(corsOptions);
+
+  app.use(cookieParser());
 
   try {
     const port = process.env.PORT || 5000

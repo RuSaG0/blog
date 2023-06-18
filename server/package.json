@@ -32,6 +32,8 @@
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "cookie": "^0.5.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "pg": "^8.11.0",
     "reflect-metadata": "^0.1.13",
